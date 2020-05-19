@@ -1,0 +1,15 @@
+Использованы таблицы:
+- Products - продукты - с полями ID (Integer) и Name (Varchar)
+- Categories - категории - с полями ID (Integer) и Name (Varchar)
+- ProductCategories - категории продукта - с полями IDProduct (Integer), IDCategory (Varchar)
+Так же при написании запроса использованы допущения:
+- Данные в таблицах корректны и нет битых ссылок (например ссылок на отсутствующий продукт)
+Текст запроса:
+SELECT
+  Products.Name 'Имя продукта',
+  Categories.Name 'Имя категории'
+FROM Products
+  LEFT JOIN ProductCategories PC
+    ON Products.ID = PC.IDProduct
+  LEFT JOIN Categories
+    ON PC.IDCategory = Categories.ID
